@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="{{ locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} — {{ i18n[locale].site_name }}</title>
+  <meta name="description" content="{{ description or site[locale].tagline }}">
+  <link rel="canonical" href="{{ meta.site_url }}{{ page.url }}">
+  {% if lang_alt_tr %}<link rel="alternate" hreflang="tr" href="{{ meta.site_url }}{{ lang_alt_tr }}">{% endif %}
+  {% if lang_alt_en %}<link rel="alternate" hreflang="en" href="{{ meta.site_url }}{{ lang_alt_en }}">{% endif %}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ title }} — {{ i18n[locale].site_name }}">
+  <meta property="og:description" content="{{ description or site[locale].tagline }}">
+  <meta property="og:locale" content="{{ 'tr_TR' if locale == 'tr' else 'en_US' }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  {% include "header.njk" %}
+  <main>
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+  <script src="/js/main.js" defer></script>
+
+  <!--
+    Lets invite / password-reset / confirmation links from Netlify Identity
+    work no matter which page they land on (they land on "/" by default,
+    not "/admin/"). Without this, the special code in those email links
+    gets silently dropped and nothing happens.
+  -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function (user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function () {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
