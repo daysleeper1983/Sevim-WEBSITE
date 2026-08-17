@@ -1,0 +1,131 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# After deploying to Netlify and enabling Identity + Git Gateway (see the
+# setup guide), Sevim logs in at yoursite.com/admin/ with the email she was
+# invited with — no GitHub account needed.
+
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+
+site_url: "https://yourdomain.com"
+display_url: "https://yourdomain.com"
+logo_url: "/favicon.svg"
+
+i18n:
+  structure: single_file
+  locales: [tr, en]
+  default_locale: tr
+
+collections:
+  - name: "site"
+    label: "Genel İçerik / General Content"
+    files:
+      - file: "src/content/site-content.md"
+        label: "Site Metinleri / Site Text"
+        name: "site-content"
+        i18n: true
+        fields:
+          - { label: "Hakkımda Fotoğrafı / About Photo", name: about_photo, widget: image }
+          - { label: "Ana Sayfa Görseli / Hero Image", name: hero_photo, widget: image }
+          - { label: "İletişim E-postası / Contact Email", name: contact_email, widget: string }
+          - { label: "Telefon / Phone", name: contact_phone, widget: string, required: false }
+          - { label: "Instagram", name: instagram_url, widget: string, required: false }
+          - { label: "YouTube", name: youtube_url, widget: string, required: false }
+          - { label: "Spotify", name: spotify_url, widget: string, required: false }
+          - { label: "Facebook", name: facebook_url, widget: string, required: false }
+          - { label: "WhatsApp Numarası / WhatsApp Number", name: whatsapp_number, widget: string, required: false }
+          - { label: "Rezervasyon Linki (opsiyonel) / Booking Link (optional)", name: booking_link, widget: string, required: false }
+          - label: "Müzik Parçaları / Audio Tracks"
+            name: audio_tracks
+            widget: list
+            i18n: false
+            summary: "{{title}} — {{platform}}"
+            fields:
+              - { label: "Başlık / Title", name: title, widget: string }
+              - { label: "Platform", name: platform, widget: string, hint: "Ör: Spotify, YouTube, SoundCloud" }
+              - { label: "Link / URL", name: url, widget: string, required: false }
+          - { label: "Slogan / Tagline", name: tagline, widget: string, i18n: true }
+          - { label: "Ana Sayfa Girişi / Hero Intro", name: hero_intro, widget: text, i18n: true, hint: "Anasayfada büyük başlık olarak görünür. / Shown as the large headline on the homepage." }
+          - { label: "Hakkımda Başlığı / About Title", name: about_title, widget: string, i18n: true }
+          - { label: "Hakkımda Metni / About Body", name: about_body, widget: markdown, i18n: true }
+          - { label: "Konum / Location", name: location, widget: string, i18n: true }
+          - { label: "Galeri Girişi / Gallery Intro", name: gallery_intro, widget: text, i18n: true }
+          - { label: "Galeri Notu / Gallery Note", name: gallery_note, widget: string, i18n: true, required: false }
+          - { label: "Kitaplar Girişi / Books Intro", name: books_intro, widget: text, i18n: true }
+          - { label: "Seanslar Girişi / Sessions Intro", name: sessions_intro, widget: text, i18n: true }
+          - { label: "Seanslar Notu / Sessions Note", name: sessions_note, widget: text, i18n: true }
+          - label: "Seans Türleri / Session Offerings"
+            name: sessions_offerings
+            widget: list
+            i18n: true
+            summary: "{{name}} — {{duration}}"
+            fields:
+              - { label: "İsim / Name", name: name, widget: string }
+              - { label: "Süre / Duration", name: duration, widget: string, hint: "Ör: 60 dakika / e.g. 60 min" }
+              - { label: "Açıklama / Description", name: description, widget: text }
+          - { label: "Müzik Girişi / Music Intro", name: music_intro, widget: text, i18n: true }
+          - { label: "Günlük Girişi / Journal Intro", name: journal_intro, widget: text, i18n: true }
+          - { label: "İletişim Girişi / Contact Intro", name: contact_intro, widget: text, i18n: true }
+          - { label: "Footer Metni / Footer Text", name: footer_text, widget: string, i18n: true }
+
+  - name: "gallery"
+    label: "Galeri / Gallery"
+    label_singular: "Galeri öğesi / Gallery item"
+    folder: "src/content/gallery"
+    create: true
+    delete: true
+    i18n: true
+    summary: "{{title}}"
+    fields:
+      - { label: "Görsel / Image", name: image, widget: image }
+      - label: "Kategori / Category"
+        name: category
+        widget: select
+        options:
+          - { label: "Taş / Stone", value: "stone" }
+          - { label: "Resim / Painting", value: "painting" }
+          - { label: "Şamanik / Shamanic", value: "shamanic" }
+          - { label: "Diğer / Other", value: "other" }
+      - { label: "Tarih / Date", name: date, widget: datetime }
+      - { label: "Öne çıkan (anasayfada gösterilsin mi?) / Featured (show on homepage?)", name: featured, widget: boolean, default: false }
+      - { label: "Başlık / Title", name: title, widget: string, i18n: true }
+      - { label: "Açıklama / Description", name: description, widget: text, i18n: true }
+
+  - name: "books"
+    label: "Kitaplar / Books"
+    label_singular: "Kitap / Book"
+    folder: "src/content/books"
+    create: true
+    delete: true
+    i18n: true
+    summary: "{{title}}"
+    fields:
+      - { label: "Kapak / Cover Image", name: cover_image, widget: image }
+      - { label: "Satın Alma / Bilgi Linki (opsiyonel) / Purchase / Info Link (optional)", name: purchase_link, widget: string, required: false }
+      - { label: "Yayın Yılı / Publish Year", name: publish_year, widget: string }
+      - label: "Durum / Status"
+        name: status
+        widget: select
+        options:
+          - { label: "Yayında / Published", value: "published" }
+          - { label: "Yakında / Upcoming", value: "upcoming" }
+      - { label: "Başlık / Title", name: title, widget: string, i18n: true }
+      - { label: "Açıklama / Description", name: description, widget: text, i18n: true }
+
+  - name: "journal"
+    label: "Günlük / Journal"
+    label_singular: "Günlük yazısı / Journal post"
+    folder: "src/content/journal"
+    create: true
+    delete: true
+    i18n: true
+    summary: "{{title}} — {{date}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Kapak Görseli / Cover Image", name: cover_image, widget: image, required: false }
+      - { label: "Tarih / Date", name: date, widget: datetime }
+      - { label: "Başlık / Title", name: title, widget: string, i18n: true }
+      - { label: "Kısa Özet / Excerpt", name: excerpt, widget: text, i18n: true, hint: "Listelerde görünen kısa özet. / Short summary shown on listing pages." }
+      - { label: "İçerik / Content", name: content_body, widget: markdown, i18n: true }

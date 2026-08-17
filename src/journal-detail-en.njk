@@ -1,0 +1,26 @@
+---
+layout: base.njk
+locale: en
+page_key: journal
+pagination:
+  data: collections.journal
+  size: 1
+  alias: post
+permalink: "en/journal/{{ post.fileSlug }}/index.html"
+eleventyComputed:
+  title: "{{ post.data.en.title }}"
+  description: "{{ post.data.en.excerpt }}"
+  lang_alt_tr: "/tr/gunluk/{{ post.fileSlug }}/"
+  lang_alt_en: "/en/journal/{{ post.fileSlug }}/"
+---
+<article class="section journal-post">
+  <div class="container" style="max-width: 800px;">
+    <p class="eyebrow"><a href="{{ slugs.journal.en }}">&larr; {{ i18n.en.back_to_journal }}</a></p>
+    <h1>{{ post.data.en.title }}</h1>
+    <p class="post-meta">{{ i18n.en.published_on }}: {{ post.data.date | localeDate("en") }}</p>
+    {% if post.data.cover_image %}<img src="{{ post.data.cover_image }}" alt="" style="border-radius: var(--radius); margin-bottom: 2em;">{% endif %}
+    <div class="post-body">
+      {{ post.data.en.content_body | markdown | safe }}
+    </div>
+  </div>
+</article>

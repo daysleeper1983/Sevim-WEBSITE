@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F3E6D8"/>
+      <stop offset="55%" stop-color="#EAD9C6"/>
+      <stop offset="100%" stop-color="#DCC7AE"/>
+    </linearGradient>
+    <linearGradient id="heroHillFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B79E8A"/>
+      <stop offset="100%" stop-color="#9C8570"/>
+    </linearGradient>
+    <linearGradient id="heroHillNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7C8B6F"/>
+      <stop offset="100%" stop-color="#5F6E53"/>
+    </linearGradient>
+    <radialGradient id="heroSun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F1CBA6"/>
+      <stop offset="100%" stop-color="#C1653F"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#heroSky)"/>
+  <circle cx="920" cy="230" r="120" fill="url(#heroSun)" opacity="0.85"/>
+  <path d="M0 480 Q 200 380 420 470 T 860 440 T 1200 500 L1200 800 L0 800 Z" fill="url(#heroHillFar)" opacity="0.55"/>
+  <path d="M0 560 Q 260 460 520 560 T 1000 540 T 1200 580 L1200 800 L0 800 Z" fill="url(#heroHillNear)"/>
+  <g opacity="0.5" fill="#F7F2EA">
+    <ellipse cx="180" cy="640" rx="46" ry="30"/>
+    <ellipse cx="260" cy="670" rx="30" ry="20"/>
+    <ellipse cx="980" cy="660" rx="60" ry="34"/>
+    <ellipse cx="1060" cy="690" rx="34" ry="22"/>
+  </g>
+</svg>

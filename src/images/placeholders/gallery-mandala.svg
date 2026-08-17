@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#F3EBDD"/>
+  <g transform="translate(300,300)" fill="none" stroke="#6B4A63" stroke-width="2" opacity="0.75">
+    <circle r="180"/>
+    <circle r="140"/>
+    <circle r="100"/>
+    <circle r="60"/>
+  </g>
+  <g transform="translate(300,300)">
+    <g id="petalGroup" fill="#C1653F" opacity="0.85">
+      <ellipse cx="0" cy="-150" rx="14" ry="34"/>
+    </g>
+  </g>
+  <use href="#petalGroup" transform="translate(300,300) rotate(30)"/>
+  <use href="#petalGroup" transform="translate(300,300) rotate(60)"/>
+  <use href="#petalGroup" transform="translate(300,300) rotate(90)"/>
+  <use href="#petalGroup" transform="translate(300,300) rotate(120)"/>
+  <use href="#petalGroup" transform="translate(300,300) rotate(150)"/>
+  <use href="#petalGroup" transform="translate(300,300) rotate(180)"/>
+  <use href="#petalGroup" transform="translate(300,300) rotate(210)"/>
+  <use href="#petalGroup" transform="translate(300,300) rotate(240)"/>
+  <use href="#petalGroup" transform="translate(300,300) rotate(270)"/>
+  <use href="#petalGroup" transform="translate(300,300) rotate(300)"/>
+  <use href="#petalGroup" transform="translate(300,300) rotate(330)"/>
+  <circle cx="300" cy="300" r="30" fill="#7C8B6F" opacity="0.9"/>
+</svg>

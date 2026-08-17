@@ -1,0 +1,37 @@
+---
+layout: base.njk
+locale: tr
+page_key: about
+lang_alt_tr: /tr/hakkimda/
+lang_alt_en: /en/about/
+title: Hakkımda
+---
+<section class="section-tight">
+  <div class="container">
+    <p class="eyebrow">{{ i18n.tr.nav_about }}</p>
+    <h1>{{ site.tr.about_title }}</h1>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container split">
+    <div class="split-media">
+      <img src="{{ site.about_photo }}" alt="Sevim Elmas">
+      <p style="margin-top:14px; color:var(--ink-soft); font-size:0.92rem;">{{ site.tr.location }}</p>
+    </div>
+    <div class="post-body">
+      {{ site.tr.about_body | markdown | safe }}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="grid grid-4">
+      <div class="card"><div class="card-body"><h3>🎨 Resim</h3><p>Tuval üzerine akrilik ve karışık teknik çalışmalar.</p></div></div>
+      <div class="card"><div class="card-body"><h3>📖 Yazı</h3><p>Denemeler, kitaplar ve günlük notlar.</p></div></div>
+      <div class="card"><div class="card-body"><h3>🪨 Taşlar</h3><p>Yıllar içinde biriktirdiğim, özenle seçilmiş bir koleksiyon.</p></div></div>
+      <div class="card"><div class="card-body"><h3>🎶 Şamanik Seans & Müzik</h3><p>Nefes, ses ve niyet çalışmasıyla eşlik ettiğim seanslar.</p></div></div>
+    </div>
+  </div>
+</section>

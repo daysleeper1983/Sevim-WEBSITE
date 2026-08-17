@@ -1,0 +1,42 @@
+---
+layout: base.njk
+locale: tr
+page_key: sessions
+lang_alt_tr: /tr/seanslar/
+lang_alt_en: /en/sessions/
+title: Şamanik Seanslar
+---
+<section class="section-tight">
+  <div class="container">
+    <p class="eyebrow">{{ i18n.tr.nav_sessions }}</p>
+    <h1>{{ i18n.tr.nav_sessions }}</h1>
+    <p class="lede">{{ site.tr.sessions_intro }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    {% for offering in site.tr.sessions_offerings %}
+    <div class="offering">
+      <h3>{{ offering.name }}</h3>
+      <span class="offering-duration">{{ i18n.tr.duration_label }}: {{ offering.duration }}</span>
+      <p>{{ offering.description }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="split reverse">
+      <div>
+        <h2>{{ i18n.tr.book_now }}</h2>
+        <p class="lede">{{ site.tr.sessions_note }}</p>
+        <a class="btn btn-primary" href="{{ slugs.contact.tr }}?konu=seans">{{ i18n.tr.book_now }}</a>
+      </div>
+      <div class="split-media">
+        <img src="/images/placeholders/gallery-stone.svg" alt="">
+      </div>
+    </div>
+  </div>
+</section>

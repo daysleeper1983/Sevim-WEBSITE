@@ -1,0 +1,35 @@
+---
+layout: base.njk
+locale: tr
+page_key: gallery
+lang_alt_tr: /tr/galeri/
+lang_alt_en: /en/gallery/
+title: Sanat & Taşlar
+---
+<section class="section-tight">
+  <div class="container">
+    <p class="eyebrow">{{ i18n.tr.nav_gallery }}</p>
+    <h1>{{ i18n.tr.nav_gallery }}</h1>
+    <p class="lede">{{ site.tr.gallery_intro }} {{ site.tr.gallery_note }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="filter-bar">
+      <button data-filter="all" class="is-active">{{ i18n.tr.filter_all }}</button>
+      <button data-filter="stone">{{ i18n.tr.filter_stone }}</button>
+      <button data-filter="painting">{{ i18n.tr.filter_painting }}</button>
+      <button data-filter="shamanic">{{ i18n.tr.filter_shamanic }}</button>
+      <button data-filter="other">{{ i18n.tr.filter_other }}</button>
+    </div>
+    <div class="gallery-grid">
+      {% for item in collections.gallery | sortByDateDesc %}
+      <button class="gallery-item" data-category="{{ item.data.category }}" data-full="{{ item.data.image }}" data-caption="{{ item.data.tr.title }} — {{ item.data.tr.description }}">
+        <img src="{{ item.data.image }}" alt="{{ item.data.tr.title }}" loading="lazy">
+        <span class="gallery-caption">{{ item.data.tr.title }}</span>
+      </button>
+      {% endfor %}
+    </div>
+  </div>
+</section>

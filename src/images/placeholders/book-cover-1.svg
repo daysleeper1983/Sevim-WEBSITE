@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
+  <defs>
+    <linearGradient id="bc1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6B4A63"/>
+      <stop offset="100%" stop-color="#3F2F3A"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#bc1)"/>
+  <rect x="24" y="24" width="352" height="552" fill="none" stroke="#DCC7AE" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="200" cy="240" r="70" fill="none" stroke="#DCC7AE" stroke-width="2" opacity="0.8"/>
+  <path d="M200 170 L200 310 M130 240 L270 240" stroke="#DCC7AE" stroke-width="1.5" opacity="0.6"/>
+  <text x="200" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#F7F2EA" opacity="0.9">Kitap Adı</text>
+  <text x="200" y="460" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#DCC7AE" opacity="0.8">Sevim Elmas</text>
+</svg>

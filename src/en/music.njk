@@ -1,0 +1,35 @@
+---
+layout: base.njk
+locale: en
+page_key: music
+lang_alt_tr: /tr/muzik/
+lang_alt_en: /en/music/
+title: Music
+---
+<section class="section-tight">
+  <div class="container">
+    <p class="eyebrow">{{ i18n.en.nav_music }}</p>
+    <h1>{{ i18n.en.nav_music }}</h1>
+    <p class="lede">{{ site.en.music_intro }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <ul class="audio-list">
+      {% for track in site.audio_tracks %}
+      <li>
+        <div>
+          <div class="track-title">{{ track.title }}</div>
+          <div class="track-platform">{{ track.platform }}</div>
+        </div>
+        {% if track.url %}
+        <a class="btn btn-ghost" href="{{ track.url }}" target="_blank" rel="noopener">▶</a>
+        {% else %}
+        <span class="badge-placeholder">{{ i18n.en.placeholder_badge }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

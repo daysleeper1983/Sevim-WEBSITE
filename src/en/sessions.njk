@@ -1,0 +1,42 @@
+---
+layout: base.njk
+locale: en
+page_key: sessions
+lang_alt_tr: /tr/seanslar/
+lang_alt_en: /en/sessions/
+title: Shamanic Sessions
+---
+<section class="section-tight">
+  <div class="container">
+    <p class="eyebrow">{{ i18n.en.nav_sessions }}</p>
+    <h1>{{ i18n.en.nav_sessions }}</h1>
+    <p class="lede">{{ site.en.sessions_intro }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    {% for offering in site.en.sessions_offerings %}
+    <div class="offering">
+      <h3>{{ offering.name }}</h3>
+      <span class="offering-duration">{{ i18n.en.duration_label }}: {{ offering.duration }}</span>
+      <p>{{ offering.description }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="split reverse">
+      <div>
+        <h2>{{ i18n.en.book_now }}</h2>
+        <p class="lede">{{ site.en.sessions_note }}</p>
+        <a class="btn btn-primary" href="{{ slugs.contact.en }}?topic=session">{{ i18n.en.book_now }}</a>
+      </div>
+      <div class="split-media">
+        <img src="/images/placeholders/gallery-stone.svg" alt="">
+      </div>
+    </div>
+  </div>
+</section>

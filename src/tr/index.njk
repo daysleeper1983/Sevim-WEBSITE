@@ -1,0 +1,101 @@
+---
+layout: base.njk
+locale: tr
+page_key: home
+lang_alt_tr: /tr/
+lang_alt_en: /en/
+title: Anasayfa
+---
+<section class="hero">
+  <img class="hero-bg" src="{{ site.hero_photo }}" alt="">
+  <div class="hero-inner">
+    <p class="eyebrow">{{ site.tr.tagline }}</p>
+    <h1>{{ site.tr.hero_intro }}</h1>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ slugs.sessions.tr }}">{{ i18n.tr.book_now }}</a>
+      <a class="btn btn-outline" href="{{ slugs.gallery.tr }}">{{ i18n.tr.nav_gallery }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="split-media">
+      <img src="{{ site.about_photo }}" alt="Sevim Elmas">
+    </div>
+    <div>
+      <p class="eyebrow">{{ i18n.tr.nav_about }}</p>
+      <h2>{{ site.tr.about_title }}</h2>
+      <p class="lede">{{ site.tr.about_body | markdown | truncate(220) | safe }}</p>
+      <a class="btn btn-outline" href="{{ slugs.about.tr }}">{{ i18n.tr.read_more }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">{{ i18n.tr.nav_gallery }}</p>
+      <h2>{{ site.tr.gallery_intro }}</h2>
+    </div>
+    <div class="grid grid-4">
+      {% for item in collections.gallery | featuredOnly | limit(4) %}
+      <div class="card">
+        <div class="card-media"><img src="{{ item.data.image }}" alt="{{ item.data.tr.title }}"></div>
+        <div class="card-body">
+          <h3>{{ item.data.tr.title }}</h3>
+          <p>{{ item.data.tr.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <p style="margin-top:36px;"><a class="btn btn-primary" href="{{ slugs.gallery.tr }}">{{ i18n.tr.view_all }}</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split reverse">
+    <div>
+      <p class="eyebrow">{{ i18n.tr.nav_sessions }}</p>
+      <h2>{{ i18n.tr.nav_sessions }}</h2>
+      <p class="lede">{{ site.tr.sessions_intro }}</p>
+      <a class="btn btn-primary" href="{{ slugs.sessions.tr }}">{{ i18n.tr.book_now }}</a>
+    </div>
+    <div class="split-media">
+      <img src="/images/placeholders/gallery-mandala.svg" alt="">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">{{ i18n.tr.nav_journal }}</p>
+      <h2>{{ site.tr.journal_intro }}</h2>
+    </div>
+    <div class="grid grid-3">
+      {% for post in collections.journal | sortByDateDesc | limit(3) %}
+      <a class="card" href="{{ slugs.journal.tr }}{{ post.fileSlug }}/" style="color:inherit;">
+        <div class="card-media"><img src="{{ post.data.cover_image }}" alt=""></div>
+        <div class="card-body">
+          <span class="card-meta">{{ post.data.date | localeDate("tr") }}</span>
+          <h3>{{ post.data.tr.title }}</h3>
+          <p>{{ post.data.tr.excerpt }}</p>
+        </div>
+      </a>
+      {% else %}
+      <p>{{ i18n.tr.no_posts_yet }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-card">
+      <p class="eyebrow" style="color:var(--sand);">{{ i18n.tr.nav_contact }}</p>
+      <h2 style="color:var(--cream);">{{ site.tr.contact_intro }}</h2>
+      <a class="btn btn-primary" href="{{ slugs.contact.tr }}">{{ i18n.tr.send_message }}</a>
+    </div>
+  </div>
+</section>

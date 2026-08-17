@@ -1,0 +1,10 @@
+{
+  "home": { "tr": "/tr/", "en": "/en/" },
+  "about": { "tr": "/tr/hakkimda/", "en": "/en/about/" },
+  "gallery": { "tr": "/tr/galeri/", "en": "/en/gallery/" },
+  "books": { "tr": "/tr/kitaplar/", "en": "/en/books/" },
+  "sessions": { "tr": "/tr/seanslar/", "en": "/en/sessions/" },
+  "music": { "tr": "/tr/muzik/", "en": "/en/music/" },
+  "journal": { "tr": "/tr/gunluk/", "en": "/en/journal/" },
+  "contact": { "tr": "/tr/iletisim/", "en": "/en/contact/" }
+}

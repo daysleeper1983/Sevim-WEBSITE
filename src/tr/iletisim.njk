@@ -1,0 +1,64 @@
+---
+layout: base.njk
+locale: tr
+page_key: contact
+lang_alt_tr: /tr/iletisim/
+lang_alt_en: /en/contact/
+title: İletişim
+---
+<section class="section-tight">
+  <div class="container">
+    <p class="eyebrow">{{ i18n.tr.nav_contact }}</p>
+    <h1>{{ i18n.tr.nav_contact }}</h1>
+    <p class="lede">{{ site.tr.contact_intro }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container split reverse">
+    <div>
+      <!--
+        Not: Bu form şu an mesajları herhangi bir yere göndermiyor.
+        Netlify'a bağladığında Netlify Forms özelliğini kolayca
+        etkinleştirebilirsin — kurulum rehberinde adımları bulabilirsin.
+      -->
+      <form class="simple-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;"><label>Doldurmayın: <input name="bot-field"></label></p>
+        <div>
+          <label for="name">{{ i18n.tr.form_name }}</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">{{ i18n.tr.form_email }}</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="session">{{ i18n.tr.form_session }}</label>
+          <input type="text" id="session" name="session">
+        </div>
+        <div>
+          <label for="message">{{ i18n.tr.form_message }}</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">{{ i18n.tr.send_message }}</button>
+      </form>
+    </div>
+    <div class="split-media">
+      <div class="contact-card">
+        <h3 style="color:var(--cream);">{{ i18n.tr.email_label }}</h3>
+        <p><a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
+        {% if site.contact_phone %}
+        <h3 style="color:var(--cream);">{{ i18n.tr.phone_label }}</h3>
+        <p><a href="tel:{{ site.contact_phone }}">{{ site.contact_phone }}</a></p>
+        {% endif %}
+        <p style="margin-top:1.4em; opacity:0.8;">{{ site.tr.location }}</p>
+        <ul class="contact-list">
+          {% if site.instagram_url %}<li><a href="{{ site.instagram_url }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
+          {% if site.youtube_url %}<li><a href="{{ site.youtube_url }}" target="_blank" rel="noopener">YouTube</a></li>{% endif %}
+          {% if site.spotify_url %}<li><a href="{{ site.spotify_url }}" target="_blank" rel="noopener">Spotify</a></li>{% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

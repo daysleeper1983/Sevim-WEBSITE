@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
+  <defs>
+    <linearGradient id="bc2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C1653F"/>
+      <stop offset="100%" stop-color="#8C4529"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#bc2)"/>
+  <rect x="24" y="24" width="352" height="552" fill="none" stroke="#F7F2EA" stroke-width="1.5" opacity="0.5"/>
+  <path d="M120 300c30-60 60-90 80-90s50 30 80 90-60 90-80 90-110-30-80-90z" fill="none" stroke="#F7F2EA" stroke-width="2" opacity="0.8"/>
+  <text x="200" y="440" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#F7F2EA" opacity="0.9">İkinci Kitap</text>
+  <text x="200" y="475" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#EFE3D3" opacity="0.8">Sevim Elmas</text>
+</svg>

@@ -1,0 +1,35 @@
+---
+layout: base.njk
+locale: en
+page_key: gallery
+lang_alt_tr: /tr/galeri/
+lang_alt_en: /en/gallery/
+title: Art & Stones
+---
+<section class="section-tight">
+  <div class="container">
+    <p class="eyebrow">{{ i18n.en.nav_gallery }}</p>
+    <h1>{{ i18n.en.nav_gallery }}</h1>
+    <p class="lede">{{ site.en.gallery_intro }} {{ site.en.gallery_note }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="filter-bar">
+      <button data-filter="all" class="is-active">{{ i18n.en.filter_all }}</button>
+      <button data-filter="stone">{{ i18n.en.filter_stone }}</button>
+      <button data-filter="painting">{{ i18n.en.filter_painting }}</button>
+      <button data-filter="shamanic">{{ i18n.en.filter_shamanic }}</button>
+      <button data-filter="other">{{ i18n.en.filter_other }}</button>
+    </div>
+    <div class="gallery-grid">
+      {% for item in collections.gallery | sortByDateDesc %}
+      <button class="gallery-item" data-category="{{ item.data.category }}" data-full="{{ item.data.image }}" data-caption="{{ item.data.en.title }} — {{ item.data.en.description }}">
+        <img src="{{ item.data.image }}" alt="{{ item.data.en.title }}" loading="lazy">
+        <span class="gallery-caption">{{ item.data.en.title }}</span>
+      </button>
+      {% endfor %}
+    </div>
+  </div>
+</section>

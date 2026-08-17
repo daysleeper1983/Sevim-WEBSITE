@@ -1,0 +1,43 @@
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <div class="footer-logo">{{ i18n[locale].site_name }}<em>.</em></div>
+      <p style="margin-top:14px; max-width: 34ch; opacity:0.85;">{{ site[locale].footer_text }}</p>
+      <div class="social-row">
+        {% if site.instagram_url %}<a href="{{ site.instagram_url }}" aria-label="Instagram" target="_blank" rel="noopener">IG</a>{% endif %}
+        {% if site.youtube_url %}<a href="{{ site.youtube_url }}" aria-label="YouTube" target="_blank" rel="noopener">YT</a>{% endif %}
+        {% if site.spotify_url %}<a href="{{ site.spotify_url }}" aria-label="Spotify" target="_blank" rel="noopener">SP</a>{% endif %}
+        {% if site.facebook_url %}<a href="{{ site.facebook_url }}" aria-label="Facebook" target="_blank" rel="noopener">FB</a>{% endif %}
+      </div>
+    </div>
+    <div>
+      <h4>{{ i18n[locale].footer_nav_title }}</h4>
+      <p style="display:flex; flex-direction:column; gap:8px; margin-top:14px;">
+        <a href="{{ slugs.gallery[locale] }}">{{ i18n[locale].nav_gallery }}</a>
+        <a href="{{ slugs.books[locale] }}">{{ i18n[locale].nav_books }}</a>
+        <a href="{{ slugs.sessions[locale] }}">{{ i18n[locale].nav_sessions }}</a>
+        <a href="{{ slugs.journal[locale] }}">{{ i18n[locale].nav_journal }}</a>
+      </p>
+    </div>
+    <div>
+      <h4>{{ i18n[locale].footer_contact_title }}</h4>
+      <p style="display:flex; flex-direction:column; gap:8px; margin-top:14px;">
+        <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+        {% if site.contact_phone %}<span>{{ site.contact_phone }}</span>{% endif %}
+        <span>{{ site[locale].location }}</span>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; {{ currentYear }} {{ i18n[locale].site_name }}. {{ i18n[locale].footer_rights }}</span>
+    <span>{{ i18n[locale].footer_built_with }}</span>
+  </div>
+</footer>
+
+<div class="lightbox">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <div>
+    <img src="" alt="">
+    <div class="lightbox-caption"></div>
+  </div>
+</div>

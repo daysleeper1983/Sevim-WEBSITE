@@ -1,0 +1,32 @@
+---
+layout: base.njk
+locale: en
+page_key: journal
+lang_alt_tr: /tr/gunluk/
+lang_alt_en: /en/journal/
+title: Journal
+---
+<section class="section-tight">
+  <div class="container">
+    <p class="eyebrow">{{ i18n.en.nav_journal }}</p>
+    <h1>{{ i18n.en.nav_journal }}</h1>
+    <p class="lede">{{ site.en.journal_intro }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container grid grid-3">
+    {% for post in collections.journal | sortByDateDesc %}
+    <a class="card" href="{{ slugs.journal.en }}{{ post.fileSlug }}/" style="color:inherit;">
+      <div class="card-media"><img src="{{ post.data.cover_image }}" alt=""></div>
+      <div class="card-body">
+        <span class="card-meta">{{ post.data.date | localeDate("en") }}</span>
+        <h3>{{ post.data.en.title }}</h3>
+        <p>{{ post.data.en.excerpt }}</p>
+      </div>
+    </a>
+    {% else %}
+    <p>{{ i18n.en.no_posts_yet }}</p>
+    {% endfor %}
+  </div>
+</section>

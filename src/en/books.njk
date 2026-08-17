@@ -1,0 +1,33 @@
+---
+layout: base.njk
+locale: en
+page_key: books
+lang_alt_tr: /tr/kitaplar/
+lang_alt_en: /en/books/
+title: Books
+---
+<section class="section-tight">
+  <div class="container">
+    <p class="eyebrow">{{ i18n.en.nav_books }}</p>
+    <h1>{{ i18n.en.nav_books }}</h1>
+    <p class="lede">{{ site.en.books_intro }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container grid grid-3">
+    {% for book in collections.books | sortByDateDesc %}
+    <div class="card">
+      <div class="card-media"><img src="{{ book.data.cover_image }}" alt="{{ book.data.en.title }}"></div>
+      <div class="card-body">
+        <span class="card-tag">{{ i18n.en.upcoming if book.data.status == "upcoming" else i18n.en.published }} · {{ book.data.publish_year }}</span>
+        <h3>{{ book.data.en.title }}</h3>
+        <p>{{ book.data.en.description }}</p>
+        {% if book.data.purchase_link %}
+        <a class="btn btn-outline" href="{{ book.data.purchase_link }}" target="_blank" rel="noopener">{{ i18n.en.buy_link }}</a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

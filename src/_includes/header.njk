@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="{{ slugs.home[locale] }}">{{ i18n[locale].site_name }}<em>.</em></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a href="{{ slugs.home[locale] }}" {% if page_key == "home" %}aria-current="page"{% endif %}>{{ i18n[locale].nav_home }}</a>
+      <a href="{{ slugs.about[locale] }}" {% if page_key == "about" %}aria-current="page"{% endif %}>{{ i18n[locale].nav_about }}</a>
+      <a href="{{ slugs.gallery[locale] }}" {% if page_key == "gallery" %}aria-current="page"{% endif %}>{{ i18n[locale].nav_gallery }}</a>
+      <a href="{{ slugs.books[locale] }}" {% if page_key == "books" %}aria-current="page"{% endif %}>{{ i18n[locale].nav_books }}</a>
+      <a href="{{ slugs.sessions[locale] }}" {% if page_key == "sessions" %}aria-current="page"{% endif %}>{{ i18n[locale].nav_sessions }}</a>
+      <a href="{{ slugs.music[locale] }}" {% if page_key == "music" %}aria-current="page"{% endif %}>{{ i18n[locale].nav_music }}</a>
+      <a href="{{ slugs.journal[locale] }}" {% if page_key == "journal" %}aria-current="page"{% endif %}>{{ i18n[locale].nav_journal }}</a>
+      <a href="{{ slugs.contact[locale] }}" {% if page_key == "contact" %}aria-current="page"{% endif %}>{{ i18n[locale].nav_contact }}</a>
+      <div class="lang-switch">
+        <a href="{{ lang_alt_tr or slugs.home.tr }}" class="{% if locale == 'tr' %}is-active{% endif %}">TR</a>
+        <a href="{{ lang_alt_en or slugs.home.en }}" class="{% if locale == 'en' %}is-active{% endif %}">EN</a>
+      </div>
+    </nav>
+  </div>
+</header>
