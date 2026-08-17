@@ -1,6 +1,6 @@
 ---
-about_photo: "/images/placeholders/portrait-placeholder.svg"
-hero_photo: "/images/placeholders/hero-bg.svg"
+about_photo: "/images/uploads/sevim-portrait.png"
+hero_photo: "/images/uploads/sevim-portrait.png"
 contact_email: "merhaba@yourdomain.com"
 contact_phone: "+90 5xx xxx xx xx"
 instagram_url: "https://instagram.com/"
