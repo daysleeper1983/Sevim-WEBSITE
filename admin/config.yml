@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
+publish_mode: editorial_workflow
+
 # After deploying to Netlify and enabling Identity + Git Gateway (see the
 # setup guide), Sevim logs in at yoursite.com/admin/ with the email she was
 # invited with — no GitHub account needed.
