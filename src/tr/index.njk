@@ -70,23 +70,39 @@ title: Anasayfa
 <section class="section section-alt">
   <div class="container">
     <div class="section-head center">
-      <p class="eyebrow">{{ i18n.tr.nav_journal }}</p>
+      <p class="eyebrow">{{ i18n.tr.home_updates_heading }}</p>
       <h2>{{ site.tr.journal_intro }}</h2>
+      <p class="lede">{{ i18n.tr.home_updates_intro }}</p>
     </div>
     <div class="grid grid-3">
-      {% for post in collections.journal | sortByDateDesc | limit(3) %}
-      <a class="card" href="{{ slugs.journal.tr }}{{ post.fileSlug }}/" style="color:inherit;">
-        <div class="card-media"><img src="{{ post.data.cover_image }}" alt=""></div>
-        <div class="card-body">
-          <span class="card-meta">{{ post.data.date | localeDate("tr") }}</span>
-          <h3>{{ post.data.tr.title }}</h3>
-          <p>{{ post.data.tr.excerpt }}</p>
-        </div>
-      </a>
+      {% set feed = collections.journal | mergeFeed(collections.events) | limit(6) %}
+      {% for item in feed %}
+        {% if item.feedType == "event" %}
+        <a class="card" href="{{ slugs.events.tr }}{{ item.fileSlug }}/" style="color:inherit;">
+          <div class="card-media"><img src="{{ item.data.image }}" alt=""></div>
+          <div class="card-body">
+            <span class="card-tag card-tag-event">{{ i18n.tr.event_badge }}</span>
+            <h3>{{ item.data.tr.title }}</h3>
+            <p>{{ item.data.tr.description }}</p>
+            <span class="card-meta">{{ item.data.event_date | localeDate("tr") }}{% if item.data.event_time %} · {{ item.data.event_time }}{% endif %}{% if item.data.location %} · {{ item.data.location }}{% endif %}</span>
+          </div>
+        </a>
+        {% else %}
+        <a class="card" href="{{ slugs.journal.tr }}{{ item.fileSlug }}/" style="color:inherit;">
+          <div class="card-media"><img src="{{ item.data.cover_image }}" alt=""></div>
+          <div class="card-body">
+            <span class="card-tag">{{ i18n.tr.journal_badge }}</span>
+            <h3>{{ item.data.tr.title }}</h3>
+            <p>{{ item.data.tr.excerpt }}</p>
+            <span class="card-meta">{{ item.data.date | localeDate("tr") }}</span>
+          </div>
+        </a>
+        {% endif %}
       {% else %}
       <p>{{ i18n.tr.no_posts_yet }}</p>
       {% endfor %}
     </div>
+    <p style="margin-top:36px;"><a class="btn btn-primary" href="{{ slugs.journal.tr }}">{{ i18n.tr.view_all }}</a></p>
   </div>
 </section>
 
