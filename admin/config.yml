@@ -11,8 +11,8 @@ publish_mode: editorial_workflow
 media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
 
-site_url: "https://yourdomain.com"
-display_url: "https://yourdomain.com"
+site_url: "https://sevimelmas.com.tr"
+display_url: "https://sevimelmas.com.tr"
 logo_url: "/favicon.svg"
 
 i18n:
