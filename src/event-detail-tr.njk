@@ -1,0 +1,27 @@
+---
+layout: base.njk
+locale: tr
+page_key: journal
+pagination:
+  data: collections.events
+  size: 1
+  alias: event
+permalink: "tr/etkinlikler/{{ event.fileSlug }}/index.html"
+eleventyComputed:
+  title: "{{ event.data.tr.title }}"
+  description: "{{ event.data.tr.description }}"
+  lang_alt_tr: "/tr/etkinlikler/{{ event.fileSlug }}/"
+  lang_alt_en: "/en/events/{{ event.fileSlug }}/"
+---
+<article class="section journal-post">
+  <div class="container" style="max-width: 800px;">
+    <p class="eyebrow"><a href="{{ slugs.journal.tr }}">&larr; {{ i18n.tr.back_to_journal }}</a></p>
+    <span class="card-tag card-tag-event">{{ i18n.tr.event_badge }}</span>
+    <h1>{{ event.data.tr.title }}</h1>
+    <p class="post-meta">{{ event.data.event_date | localeDate("tr") }}{% if event.data.event_time %} · {{ event.data.event_time }}{% endif %}{% if event.data.location %} · {{ event.data.location }}{% endif %}</p>
+    {% if event.data.image %}<img src="{{ event.data.image }}" alt="" style="border-radius: var(--radius); margin-bottom: 2em; max-width: 480px;">{% endif %}
+    <div class="post-body">
+      <p>{{ event.data.tr.description }}</p>
+    </div>
+  </div>
+</article>
