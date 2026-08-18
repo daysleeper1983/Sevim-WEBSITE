@@ -56,6 +56,29 @@ module.exports = function (eleventyConfig) {
     return arr.filter((item) => item.data && item.data.category === cat);
   });
 
+  // Merge the journal and events collections into one reverse-chronological
+  // newsfeed, so the homepage can show both blog posts and event updates
+  // together. Each item gets a feedType ("journal" | "event") and a
+  // feedDate used for sorting, since the two content types keep their date
+  // in differently-named fields (date vs event_date).
+  eleventyConfig.addFilter("mergeFeed", (journalArr, eventsArr) => {
+    const journalItems = (Array.isArray(journalArr) ? journalArr : []).map((item) => ({
+      ...item,
+      feedType: "journal",
+      feedDate: item.data.date,
+    }));
+    const eventItems = (Array.isArray(eventsArr) ? eventsArr : []).map((item) => ({
+      ...item,
+      feedType: "event",
+      feedDate: item.data.event_date,
+    }));
+    return [...journalItems, ...eventItems].sort((a, b) => {
+      const ad = new Date(a.feedDate || 0).getTime();
+      const bd = new Date(b.feedDate || 0).getTime();
+      return bd - ad;
+    });
+  });
+
   return {
     dir: {
       input: "src",
