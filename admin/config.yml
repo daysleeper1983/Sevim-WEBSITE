@@ -131,3 +131,20 @@ collections:
       - { label: "Başlık / Title", name: title, widget: string, i18n: true }
       - { label: "Kısa Özet / Excerpt", name: excerpt, widget: text, i18n: true, hint: "Listelerde görünen kısa özet. / Short summary shown on listing pages." }
       - { label: "İçerik / Content", name: content_body, widget: markdown, i18n: true }
+
+  - name: "events"
+    label: "Etkinlikler / Events"
+    label_singular: "Etkinlik / Event"
+    folder: "src/content/events"
+    create: true
+    delete: true
+    i18n: true
+    summary: "{{title}} — {{event_date}}"
+    sortable_fields: ["event_date", "title"]
+    fields:
+      - { label: "Görsel / Image", name: image, widget: image }
+      - { label: "Etkinlik Tarihi / Event Date", name: event_date, widget: datetime }
+      - { label: "Saat / Time", name: event_time, widget: string, required: false, hint: "Ör: 14.00-21.00 / e.g. 14:00-21:00" }
+      - { label: "Konum / Location", name: location, widget: string, required: false }
+      - { label: "Başlık / Title", name: title, widget: string, i18n: true }
+      - { label: "Açıklama / Description", name: description, widget: text, i18n: true }
