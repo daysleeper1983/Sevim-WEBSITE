@@ -6,5 +6,6 @@
   "sessions": { "tr": "/tr/seanslar/", "en": "/en/sessions/" },
   "music": { "tr": "/tr/muzik/", "en": "/en/music/" },
   "journal": { "tr": "/tr/gunluk/", "en": "/en/journal/" },
+  "events": { "tr": "/tr/etkinlikler/", "en": "/en/events/" },
   "contact": { "tr": "/tr/iletisim/", "en": "/en/contact/" }
 }

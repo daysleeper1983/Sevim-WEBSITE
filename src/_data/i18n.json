@@ -39,7 +39,11 @@
     "published": "Yayında",
     "buy_link": "Satın al / bilgi al",
     "no_posts_yet": "Henüz günlük yazısı eklenmedi. Yakında burada!",
-    "hero_scroll": "Aşağı kaydır"
+    "hero_scroll": "Aşağı kaydır",
+    "home_updates_heading": "Güncellemeler",
+    "home_updates_intro": "Günlük yazılarım ve yaklaşan etkinliklerim burada, tek akışta.",
+    "journal_badge": "Günlük",
+    "event_badge": "Etkinlik"
   },
   "en": {
     "site_name": "Sevim Elmas",
@@ -81,6 +85,10 @@
     "published": "Published",
     "buy_link": "Buy / learn more",
     "no_posts_yet": "No journal entries yet. Check back soon!",
-    "hero_scroll": "Scroll down"
+    "hero_scroll": "Scroll down",
+    "home_updates_heading": "Updates",
+    "home_updates_intro": "My journal posts and upcoming events, together in one feed.",
+    "journal_badge": "Journal",
+    "event_badge": "Event"
   }
 }
