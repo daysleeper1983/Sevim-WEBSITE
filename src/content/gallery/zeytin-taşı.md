@@ -1,9 +1,9 @@
 ---
+image: /images/uploads/07.png
+category: stone
+date: 2026-08-18T22:47:00.000+03:00
+featured: false
 tr:
-  featured: false
-  image: /images/uploads/07.png
-  category: stone
-  date: 2026-08-18T22:47:00.000+03:00
   title: Zeytin Taşı
   description: Zeytin yeşili tonlarında doğal taş, toprak dokusuyla öne çıkıyor.
 en:
